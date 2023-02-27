@@ -27,6 +27,11 @@ class TagCreateView(generic.CreateView):
     success_url = reverse_lazy("catalog:tag-list")
 
 
+class TagUpdateView(generic.UpdateView):
+    model = Tag
+    fields = "__all__"
+    success_url = reverse_lazy("catalog:tag-list")
+    template_name = "catalog/tag_list.html"
 
 
 class TaskListView(generic.ListView):
@@ -39,3 +44,10 @@ class TaskCreateView(generic.CreateView):
     model = Task
     fields = "__all__"
     success_url = reverse_lazy("catalog:task-list")
+
+
+class TaskUpdateView(generic.UpdateView):
+    model = Task
+    fields = "__all__"
+    success_url = reverse_lazy("catalog:index")
+    template_name = "catalog/index.html"
