@@ -15,3 +15,6 @@ urlpatterns = [
         name="task-list"
     ),
 ]
+
+
+app_name = "catalog"
