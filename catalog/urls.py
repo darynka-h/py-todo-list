@@ -1,7 +1,6 @@
 from django.urls import path
 
 from catalog.views import (
-    index,
     TagListView,
     TaskListView,
     TagCreateView,
@@ -14,7 +13,6 @@ from catalog.views import (
 )
 
 urlpatterns = [
-    path("", index, name="index"),
     path(
         "tags/",
         TagListView.as_view(),
@@ -36,7 +34,7 @@ urlpatterns = [
         name="tag-delete",
     ),
     path(
-        "tasks/",
+        "",
         TaskListView.as_view(),
         name="task-list"
     ),
