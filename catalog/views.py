@@ -43,6 +43,10 @@ class TaskListView(generic.ListView):
     context_object_name = "task_list"
     template_name = "catalog/task_list.html"
 
+    def get_queryset(self):
+        my_query_set = Task.objects.all().order_by("done")
+        return my_query_set
+
 
 class TaskCreateView(generic.CreateView):
     model = Task

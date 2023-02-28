@@ -21,5 +21,7 @@ class Task(models.Model):
     done = models.BooleanField(default=False)
     task_tag = models.ManyToManyField(Tag)
 
+    class Meta:
+        ordering = ["-time_creation",]
     # def __str__(self):
     #     return f"{self.content}({self.task_tag})"
