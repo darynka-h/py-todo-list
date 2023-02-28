@@ -33,7 +33,7 @@ class TaskListView(generic.ListView):
     template_name = "catalog/task_list.html"
 
     def get_queryset(self):
-        my_query_set = Task.objects.all().order_by("-time_creation", "done", )
+        my_query_set = Task.objects.all().order_by("done", "-time_creation")
         return my_query_set
 
 
