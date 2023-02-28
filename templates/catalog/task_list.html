@@ -17,6 +17,9 @@
           <td>
             <p style="font-weight: bold"> {{ task.content}} {% if task.done == False %} <span style="color: red"> Not done</span>{% else %}<span style="color: green"> Done! </span>{% endif %} </p>
               <p>Created at: {{ task.time_creation}}</p>
+              {% if task.deadline %}
+              <p>Deadline: {{ task.deadline}} </p>
+              {% endif %}
               <p>Tags:
                 {% for tag in task.task_tag.all %}
                   {{ tag.name }}

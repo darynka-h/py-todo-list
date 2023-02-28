@@ -17,11 +17,9 @@ class Executor(AbstractUser):
 class Task(models.Model):
     content = models.CharField(max_length=255)
     time_creation = models.DateTimeField(auto_now_add=True)
-    deadline = models.DateTimeField()
+    deadline = models.DateTimeField(blank=True, null=True)
     done = models.BooleanField(default=False)
     task_tag = models.ManyToManyField(Tag)
 
-    class Meta:
-        ordering = ["-time_creation",]
-    # def __str__(self):
-    #     return f"{self.content}({self.task_tag})"
+    # class Meta:
+    #     ordering = ["-time_creation", ]

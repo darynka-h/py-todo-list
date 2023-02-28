@@ -10,7 +10,7 @@ from catalog.views import (
     TaskUpdateView,
     TagDeleteView,
     TaskDeleteView,
-    toggle_to_done
+    toggle_to_done,
 )
 
 urlpatterns = [
