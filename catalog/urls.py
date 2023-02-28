@@ -6,7 +6,7 @@ from catalog.views import (
     TaskListView,
     TagCreateView,
     TaskCreateView,
-    TagUpdateView, TaskUpdateView
+    TagUpdateView, TaskUpdateView, TagDeleteView, TaskDeleteView
 )
 
 urlpatterns = [
@@ -27,6 +27,11 @@ urlpatterns = [
         name="tag-update",
     ),
     path(
+        "tags/<int:pk>/delete/",
+        TagDeleteView.as_view(),
+        name="tag-delete",
+    ),
+    path(
         "tasks/",
         TaskListView.as_view(),
         name="task-list"
@@ -40,6 +45,11 @@ urlpatterns = [
         "tasks/<int:pk>/update/",
         TaskUpdateView.as_view(),
         name="task-update",
+    ),
+    path(
+        "tasks/<int:pk>/delete/",
+        TaskDeleteView.as_view(),
+        name="task-delete",
     ),
 ]
 

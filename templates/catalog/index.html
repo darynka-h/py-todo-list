@@ -32,12 +32,12 @@
           <td>
               {{ task.time_creation}}
           </td>
-{#          <td>#}
-{#              <a href="{% url 'catalog:task-update' pk=task.id %}">#}
-{#                Update#}
-{#              </a>#}
-{#            </td>#}
-{#            <td>#}
+          <td>
+              <a href="{% url 'catalog:task-update' pk=task.id %}">
+                Update
+              </a>
+            </td>
+            <td>
 {#              <a style="color: red"#}
 {#                href="{% url 'catalog:task-delete' pk=task.id %}">#}
 {#                Delete#}
