@@ -26,10 +26,18 @@
               </p>
           </td>
           <td>
-              {% if task.done == False %} <span class="btn btn-success"> Complete </span>
-              {% else %} <span class="btn btn-secondary">Undo</span>>{% endif %}
+{#              {% if task.done == False %} <span class="btn btn-success"> Complete </span>#}
+{#              {% else %} <span class="btn btn-secondary">Undo</span>>{% endif %}#}
+            {% if task.done == False %}
+            <a href="{% url 'catalog:toggle-done' pk=task.id %}" class="btn btn-success">
+              Complete
+            </a>
+            {% else %}
+              <a href="{% url 'catalog:toggle-done' pk=task.id %}" class="btn btn-secondary">
+                Undo
               </a>
-          </td>
+            {% endif %}
+              </td>
 
         </tr>
       {% endfor %}

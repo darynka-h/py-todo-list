@@ -6,7 +6,7 @@ from catalog.views import (
     TaskListView,
     TagCreateView,
     TaskCreateView,
-    TagUpdateView, TaskUpdateView, TagDeleteView, TaskDeleteView
+    TagUpdateView, TaskUpdateView, TagDeleteView, TaskDeleteView, toggle_to_done
 )
 
 urlpatterns = [
@@ -50,6 +50,11 @@ urlpatterns = [
         "tasks/<int:pk>/delete/",
         TaskDeleteView.as_view(),
         name="task-delete",
+    ),
+    path(
+        "tasks/<int:pk>/toggle-done/",
+        toggle_to_done,
+        name="toggle-done",
     ),
 ]
 
