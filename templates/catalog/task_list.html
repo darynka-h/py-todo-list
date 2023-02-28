@@ -15,9 +15,14 @@
         <tr>
 
           <td>
-              <p style="font-weight: bold"> {{ task.content}} {% if task.done == False %} <span style="color: red"> Not done</span>{% else %} Done{% endif %} </p>
+            <p style="font-weight: bold"> {{ task.content}} {% if task.done == False %} <span style="color: red"> Not done</span>{% else %}<span style="color: green"> Done! </span>{% endif %} </p>
               <p>Created at: {{ task.time_creation}}</p>
-              <p>Tags: {{ task.task_tag }} &ensp;<a href="{% url 'catalog:task-update' pk=task.id %}">
+              <p>Tags:
+                {% for tag in task.task_tag.all %}
+                  {{ tag.name }}
+                {% endfor %}
+
+                <a href="{% url 'catalog:task-update' pk=task.id %}">
                 Update
               </a>&ensp;
                   <a href="{% url 'catalog:task-delete' pk=task.id %}">
@@ -26,8 +31,6 @@
               </p>
           </td>
           <td>
-{#              {% if task.done == False %} <span class="btn btn-success"> Complete </span>#}
-{#              {% else %} <span class="btn btn-secondary">Undo</span>>{% endif %}#}
             {% if task.done == False %}
             <a href="{% url 'catalog:toggle-done' pk=task.id %}" class="btn btn-success">
               Complete

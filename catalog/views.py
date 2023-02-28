@@ -60,6 +60,7 @@ class TaskDeleteView(generic.DeleteView):
     model = Task
     success_url = reverse_lazy("catalog:task-list")
 
+
 def toggle_to_done(request, pk):
     task = Task.objects.get(id=pk)
     task.done = not task.done

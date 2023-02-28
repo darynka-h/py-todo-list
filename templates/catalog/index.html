@@ -1,17 +1,12 @@
 {% extends "base.html" %}
-{#{% load crispy_forms_filters %}#}
 
 {% block content %}
   <h1>
     TODO List
     <a href="{% url 'catalog:task-create' %}" class="btn btn-primary link-to-page">
-      Create
+      Add task
     </a>
   </h1>
-{#  <form class="form-inline" action="" method="get">#}
-{#    {{ search_form|crispy }}#}
-{#    <input class="btn btn-secondary" type="submit" value="Search">#}
-{#  </form>#}
 
   {% if task_list %}
     <table class="table">
@@ -38,12 +33,6 @@
               </a>
             </td>
             <td>
-{#              <a style="color: red"#}
-{#                href="{% url 'catalog:task-delete' pk=task.id %}">#}
-{#                Delete#}
-{#              </a>#}
-{#            </td>#}
-{#        </tr>#}
       {% endfor %}
     </table>
 
