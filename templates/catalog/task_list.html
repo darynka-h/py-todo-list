@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    TODO List
+    <a href="{% url 'catalog:task-create' %}" class="btn btn-primary link-to-page">
+      Add task
+    </a>
+  </h1>
+
+  {% if task_list %}
+    <table class="table">
+
+      {% for task in task_list %}
+        <tr>
+
+          <td>
+              <p style="font-weight: bold"> {{ task.content}} {% if task.done == False %} <span style="color: red"> Not done</span>{% else %} Done{% endif %} </p>
+              <p>Created at: {{ task.time_creation}}</p>
+              <p>Tags: {{ task.task_tag }} &ensp;<a href="{% url 'catalog:task-update' pk=task.id %}">
+                Update
+              </a>&ensp;
+                  <a href="{% url 'catalog:task-delete' pk=task.id %}">
+              Delete
+            </a>
+              </p>
+          </td>
+          <td>
+              {% if task.done == False %} <span class="btn btn-success"> Complete </span>
+              {% else %} <span class="btn btn-secondary">Undo</span>>{% endif %}
+              </a>
+          </td>
+
+        </tr>
+      {% endfor %}
+    </table>
+
+  {% else %}
+      <p>There are no tasks in the todo list.</p>
+  {% endif %}
+{% endblock %}

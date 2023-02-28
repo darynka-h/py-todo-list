@@ -1,48 +1,36 @@
 {% extends "base.html" %}
-{#{% load crispy_forms_filters %}#}
 
 {% block content %}
   <h1>
     Tag List
     <a href="{% url 'catalog:tag-create' %}" class="btn btn-primary link-to-page">
-      Create
+      Add
     </a>
   </h1>
-{#  <form class="form-inline" action="" method="get">#}
-{#    {{ search_form|crispy }}#}
-{#    <input class="btn btn-secondary" type="submit" value="Search">#}
-{#  </form>#}
 
   {% if tag_list %}
     <table class="table">
       <tr>
-        <th>ID</th>
         <th>Name</th>
-{#        <th>Time creation</th>#}
+        <th>Update</th>
+        <th>Delete</th>
       </tr>
 
       {% for tag in tag_list %}
         <tr>
           <td>
-              {{ tag.id }}
-          </td>
-          <td>
               {{ tag.name}}
           </td>
-{#          <td>#}
-{#              {{ task.time_creation}}#}
-{#          </td>#}
-{#          <td>#}
-{#              <a href="{% url 'catalog:tag-update' pk=tag.id %}">#}
-{#                Update#}
-{#              </a>#}
-{#            </td>#}
-{#            <td>#}
-{#              <a style="color: red"#}
-{#                href="{% url 'catalog:tag-delete' pk=tag.id %}">#}
-{#                Delete#}
-{#              </a>#}
-{#            </td>#}
+          <td>
+              <a href="{% url 'catalog:tag-update' pk=tag.id %}" class="btn btn-secondary">
+                Update
+              </a>
+            </td>
+            <td>
+              <a href="{% url 'catalog:tag-delete' pk=tag.id %}" class="btn btn-secondary">
+                Delete
+              </a>
+            </td>
         </tr>
       {% endfor %}
     </table>
