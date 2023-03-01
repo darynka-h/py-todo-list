@@ -1,4 +1,5 @@
 from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -55,7 +56,7 @@ class TaskDeleteView(generic.DeleteView):
 
 
 def toggle_to_done(request, pk):
-    task = Task.objects.get(id=pk)
+    task = get_object_or_404(Task, pk=pk)
     task.done = not task.done
     task.save()
     return HttpResponseRedirect(reverse_lazy("catalog:task-list"))
